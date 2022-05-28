@@ -1,0 +1,9 @@
+{
+    "dependencies": {},
+    "scripts": {
+        "build": "ncc build index.js -m -o dist"
+    },
+    "devDependencies": {
+        "@vercel/ncc": "^0.34.0"
+    }
+}
