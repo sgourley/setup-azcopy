@@ -1,7 +1,10 @@
 {
-    "dependencies": {},
+    "dependencies": {
+        "@actions/core": "^1.8.2",
+        "@actions/tool-cache": "^2.0.1"
+    },
     "scripts": {
-        "build": "ncc build index.js -m -o dist"
+        "build": "ncc build index.js -m -o runtime"
     },
     "devDependencies": {
         "@vercel/ncc": "^0.34.0"
