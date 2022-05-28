@@ -4,10 +4,19 @@ const tc = require('@actions/tool-cache');
 
 async function main() {
     try {
-        const downloadPath = tc.downloadTool(getDownloadUrl());
+        const sourceUrl = getDownloadUrl();
+        core.debug(`Downloading from ${sourceUrl}`);
+
+        const downloadPath = tc.downloadTool(sourceUrl);
+        core.debug(`Downloaded to ${downloadPath}`);
+
         const extractPath = await (IS_WINDOWS ? tc.extractZip(downloadPath) : tc.extractTar(downloadPath));
+        core.debug(`Extracted to ${extractPath}`);
+
         const cachedPath = await tc.cacheDir(extractPath, 'azcopy', '10');
         core.addPath(cachedPath);
+        core.debug(`Cached to ${cachedPath}`);
+
     } catch (err) {
         core.setFailed(err.toString());
     }
