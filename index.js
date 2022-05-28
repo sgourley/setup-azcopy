@@ -7,7 +7,7 @@ async function main() {
         const sourceUrl = getDownloadUrl();
         core.debug(`Downloading from ${sourceUrl}`);
 
-        const downloadPath = tc.downloadTool(sourceUrl);
+        const downloadPath = await tc.downloadTool(sourceUrl);
         core.debug(`Downloaded to ${downloadPath}`);
 
         const extractPath = await (IS_WINDOWS ? tc.extractZip(downloadPath) : tc.extractTar(downloadPath));
