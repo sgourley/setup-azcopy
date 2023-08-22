@@ -5,5 +5,5 @@ branding:
   icon: 'triangle'  
   color: 'blue'
 runs:
-  using: 'node16'
-  main: 'runtime/index.js'
+  using: 'node18'
+  main: 'index.js'
